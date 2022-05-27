@@ -6,7 +6,7 @@ public class TestUser {
     @Test
     public void TestCreateUser(){
         User user = new User();
-        user.setFullName("chinh");
+        user.setFullName("duong thi chinh");
         user.setUsername("chinh");
         user.setEmail("chinh@gmail.com");
         user.setPasswordHash("123");

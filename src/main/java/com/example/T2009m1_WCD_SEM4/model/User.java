@@ -8,6 +8,10 @@ public class User {
     private String passwordHash;
     private int status;
 
+    public User() {
+
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -19,19 +23,21 @@ public class User {
                 ", status=" + status +
                 '}';
     }
-
     public User(int id, String fullName, String username, String email, String passwordHash, int status) {
         this.id = id;
         this.fullName = fullName;
         this.username = username;
-        Email = email;
+        this.Email = email;
         this.passwordHash = passwordHash;
         this.status = status;
     }
-
-    public User() {
+    public User(String fullName, String username, String email, String passwordHash, int status) {
+        this.fullName = fullName;
+        this.username = username;
+        this.Email = email;
+        this.passwordHash = passwordHash;
+        this.status = status;
     }
-
     public int getId() {
         return id;
     }

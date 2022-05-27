@@ -1,39 +1,23 @@
 package com.example.T2009m1_WCD_SEM4.entity;
 
-public class Account {
-    private String username;
-    private String password;
-    private String fullName;
-    private String email;
-    private String phone;
-    private String birthday;
+import java.util.HashMap;
 
-    public Account(String username, String password, String fullName, String email, String phone, String birthday) {
-        this.username = username;
-        this.password = password;
-        this.fullName = fullName;
-        this.email = email;
-        this.phone = phone;
-        this.birthday = birthday;
-    }
+public class Account {
+    private String fullName;
+    private String username;
+    private String passwordHask;
+    private String email;
+    private int status;
 
     public Account() {
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
+    public Account(String fullName, String username, String passwordHask, String email, int status) {
+        this.fullName = fullName;
         this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+        this.passwordHask = passwordHask;
+        this.email = email;
+        this.status = status;
     }
 
     public String getFullName() {
@@ -44,6 +28,22 @@ public class Account {
         this.fullName = fullName;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPasswordHask() {
+        return passwordHask;
+    }
+
+    public void setPasswordHask(String passwordHask) {
+        this.passwordHask = passwordHask;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -52,19 +52,11 @@ public class Account {
         this.email = email;
     }
 
-    public String getPhone() {
-        return phone;
+    public int getStatus() {
+        return status;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
+    public void setStatus(int status) {
+        this.status = status;
     }
 }

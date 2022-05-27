@@ -11,19 +11,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MySqlUserModel implements UserModel{
+    private static  final String INSERT_USER = "INSERT INTO users (fullName, username, Email, passwordHash, status) VALUES  (?,?,?,?,?);";
     @Override
     public boolean save(User user) {
-        Connection connection = ConnectionHelper.getConnection();
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("insert into wcd-sem4(fullName, username, Email, passwordHash, status) values (?,?,?,?,?)");
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection connection = ConnectionHelper.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USER);
             preparedStatement.setString(1, user.getFullName());
             preparedStatement.setString(2, user.getUsername());
             preparedStatement.setString(3, user.getEmail());
             preparedStatement.setString(4, user.getPasswordHash());
             preparedStatement.setInt(5, user.getStatus());
-            preparedStatement.execute();
+            preparedStatement.executeUpdate();
             return true;
         }catch (SQLException e){
+            e.printStackTrace();
+        }catch (ClassNotFoundException e){
             e.printStackTrace();
         }
         return false;
@@ -33,7 +37,7 @@ public class MySqlUserModel implements UserModel{
     public boolean update(int id, User updateUser) {
         Connection connection = ConnectionHelper.getConnection();
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("update wcd-sem4 set fullName = ?, username = ?, email = ?, passwordHash = ?, status = ? where id = ?");
+            PreparedStatement preparedStatement = connection.prepareStatement("update sem-4 set fullName = ?, username = ?, email = ?, passwordHash = ?, status = ? where id = ?");
             preparedStatement.setString(1, updateUser.getFullName());
             preparedStatement.setString(2, updateUser.getUsername());
             preparedStatement.setString(3, updateUser.getEmail());
@@ -52,7 +56,7 @@ public class MySqlUserModel implements UserModel{
     public boolean delete(int id) {
         Connection connection = ConnectionHelper.getConnection();
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("update wcd-sem4 set status = ? where id = ?");
+            PreparedStatement preparedStatement = connection.prepareStatement("update sem-4 set status = ? where id = ?");
             preparedStatement.setInt(1, -1);
             preparedStatement.setInt(2, id);
             preparedStatement.execute();
@@ -68,7 +72,7 @@ public class MySqlUserModel implements UserModel{
         List<User> users = new ArrayList<>();
         try {
             Connection connection = ConnectionHelper.getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement("select * from wcd-sem4 where status = ?");
+            PreparedStatement preparedStatement = connection.prepareStatement("select * from sem-4 where status = ?");
             preparedStatement.setInt(1, 1);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
@@ -91,7 +95,7 @@ public class MySqlUserModel implements UserModel{
     public User findById(int id) {
         try {
             Connection connection = ConnectionHelper.getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement("select * from wcd-sem4 where status = ? and id = ?");
+            PreparedStatement preparedStatement = connection.prepareStatement("select * from sem-4 where status = ? and id = ?");
             preparedStatement.setInt(1, 1);
             preparedStatement.setInt(2, id);
             ResultSet resultSet = preparedStatement.executeQuery();
