@@ -11,4 +11,40 @@
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>CreateProductServlet</servlet-name>
+        <servlet-class>com.example.T2009m1_WCD_SEM4.controller.CreateProductServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateProductServlet</servlet-name>
+        <url-pattern>/create</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ListProductServlet</servlet-name>
+        <servlet-class>com.example.T2009m1_WCD_SEM4.controller.CreateProductServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListProductServlet</servlet-name>
+        <url-pattern>/list</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteProductServlet</servlet-name>
+        <servlet-class>com.example.T2009m1_WCD_SEM4.controller.CreateProductServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteProductServlet</servlet-name>
+        <url-pattern>/delete</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdateProductServlet</servlet-name>
+        <servlet-class>com.example.T2009m1_WCD_SEM4.controller.CreateProductServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateProductServlet</servlet-name>
+        <url-pattern>/update</url-pattern>
+    </servlet-mapping>
+
 </web-app>

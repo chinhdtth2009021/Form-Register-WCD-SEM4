@@ -15,12 +15,12 @@ public class ConnectionHelper {
             Class.forName("com.mysql.jdbc.Driver");
             if (connection == null || connection.isClosed()) {
                 connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
-                System.out.println("Connection success!");
             }
+            System.out.println("Connection success!");
         } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e ) {
-            e.printStackTrace();
+            System.out.println(e);
+        } catch (ClassNotFoundException e) {
+            System.out.println(e);
         }
         return connection;
     }
