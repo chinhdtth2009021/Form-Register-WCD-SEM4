@@ -46,5 +46,13 @@
         <servlet-name>UpdateProductServlet</servlet-name>
         <url-pattern>/update</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>Dashboard</servlet-name>
+        <jsp-file>/Admin/view/index.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Dashboard</servlet-name>
+        <url-pattern>/Admin</url-pattern>
+    </servlet-mapping>
 
 </web-app>
